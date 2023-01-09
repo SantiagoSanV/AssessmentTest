@@ -44,10 +44,10 @@ public class ProjectController {
     }
 
     @PostMapping(value = "getOrderStats")
-    public String getOrderStats(@RequestParam String statName) {
+    public OutputQ3 getOrderStats(@RequestParam String statName) {
 
         // Stream use
-        List<Order> outputOrderList;
+        List<Order> outputOrderList =new ArrayList<>();
         if (statName.equals("MAX_SALE")) {
             outputOrderList = DemoApplication.orderList.stream()
                 .sorted(Comparator.comparingDouble(Order::getQuantity).reversed())
@@ -59,10 +59,10 @@ public class ProjectController {
                 .collect(Collectors.toList());
         }
 
-//        OutputQ3 outputQ3 = new OutputQ3(outputOrderList);
-//
-//        // Response
-        return statName;
+        OutputQ3 outputQ3 = new OutputQ3("", outputOrderList);
+
+        // Response
+        return outputQ3;
     }
 
 

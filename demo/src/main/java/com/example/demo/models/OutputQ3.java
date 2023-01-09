@@ -13,7 +13,8 @@ public class OutputQ3 {
     @Getter @Setter
     private List<Order> orderList;
 
-    public OutputQ3(String productId) {
+    public OutputQ3(String productId, List<Order> orderList) {
         this.productId = productId;
+        this.orderList = orderList;
     }
 }
