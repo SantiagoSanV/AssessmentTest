@@ -59,7 +59,7 @@ public class ProjectController {
                 .collect(Collectors.toList());
         }
 
-        OutputQ3 outputQ3 = new OutputQ3("", outputOrderList);
+        OutputQ3 outputQ3 = new OutputQ3(outputOrderList.get(0).getProductId(), outputOrderList);
 
         // Response
         return outputQ3;
